@@ -1,0 +1,97 @@
+/* File Name: style.css */
+:root {
+    --primary: #0056b3;
+    --emergency: #d9534f;
+    --normal: #5bc0de;
+    --dark: #212529;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: var(--dark);
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.container {
+    flex: 1;
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Forms and Inputs */
+.form-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 8px; font-weight: bold; }
+input, select, textarea {
+    width: 100%; padding: 12px;
+    border: 1px solid #ccc; border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+button {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px; border: none; border-radius: 5px;
+    cursor: pointer; font-weight: bold; width: 100%;
+}
+
+/* Queue Displays */
+.queue-header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.display-box {
+    text-align: center;
+    border: 2px solid var(--primary);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.token-big { font-size: 50px; font-weight: bold; color: var(--primary); }
+
+/* Table Styling */
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: var(--dark); color: white; }
+
+.emerg-row { background-color: #fdf2f2; font-weight: bold; color: var(--emergency); }
+.badge { padding: 5px 10px; border-radius: 4px; color: white; font-size: 12px; }
+.badge-emerg { background-color: var(--emergency); }
+.badge-normal { background-color: var(--normal); }
+
+/* Footer */
+footer { background-color: var(--dark); color: white; padding: 20px 0;  }
+.footer-table { margin: 0 auto;  width: 350px; font-size: 14px; }
+.footer-table th, .footer-table td { padding: 5px; text-align: left; }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Smart PQMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>Patient Registration</h1></header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="register.html">Registration</a>
+        <a href="queue.html">Queue No</a>
+        <a href="contact-us.html">Contact Us</a>
+    </nav>
+    <div class="container">
+        <form id="regForm">
+            <div class="form-group"><label>First Name</label><input type="text" id="fname"></div>
+            <div class="form-group"><label>Age</label><input type="number" id="age"></div>
+            <div class="form-group">
+                <label>Category (Triage)</label>
+                <select id="category">
+                    <option value="Normal">Normal Patient</option>
+                    <option value="Emergency">Emergency Patient</option>
+                </select>
+            </div>
+            <button type="submit">Get Queue Token</button>
+        </form>
+        <div id="tokenOutput"></div>
+    </div>
+    <footer>
+        <table class="footer-table">
+            <tr><th>group members</th><th>id</th></tr>
+            <tr><td>1 yosef</td><td>1602880</td></tr>
+            <tr><td>2 zel</td><td>1602906</td></tr>
+            <tr><td>3 desa</td><td>1602900</td></tr>
+            <tr><td>4 baze</td><td>150340</td></tr>
+        </table>
+    </footer>
+    <script src="reg_val.js"></script>
+    <script src="queue_val.js"></script>
+</body>
+</html>
