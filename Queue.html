@@ -16,6 +16,12 @@
     <div class="container">
         <div class="queue-display"><h3>Serving</h3><div class="queue-number" id="servingNo">---</div></div>
         <div class="queue-display"><h3>Next</h3><div class="queue-number" id="nextNo">---</div></div>
+        <h3>Full Waiting List</h3>
+        <table id="patientTable">
+            <thead><tr><th>Token</th><th>Patient Name</th><th>Category</th><th>Status</th></tr></thead>
+            <tbody id="queueListBody"></tbody>
+        </table>
+        <br>
         <button onclick="updateQueue()">Update Queue</button>
     </div>
     <footer>
