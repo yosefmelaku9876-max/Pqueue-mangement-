@@ -16,10 +16,7 @@ body {
 }
 
 header {
-    background-color: var(--primary);
-    color: white;
-    padding: 20px;
-    text-align: center;
+    display: none; /* Hide old headers since we now use Hero sections */
 }
 
 nav {
@@ -37,14 +34,53 @@ nav a {
     text-transform: uppercase;
 }
 
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.hero-stats span {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Section Styles */
+.hero, .hero-small {
+    background: linear-gradient(135deg, var(--primary) 0%, #007bff 100%);
+    color: white;
+    text-align: center;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.05);
+}
+
+.hero { padding: 60px 20px; }
+.hero-small { padding: 40px 20px; }
+
+.hero-content, .hero-small {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h2 { font-size: 2.5rem; margin-bottom: 20px; }
+.hero-small h2 { font-size: 1.8rem; margin-bottom: 10px; }
+
 .container {
     flex: 1;
     max-width: 1000px;
-    margin: 40px auto;
+    margin: -40px auto 40px; /* Pulls container up slightly for a overlapping effect */
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 10;
 }
 
 /* Forms and Inputs */

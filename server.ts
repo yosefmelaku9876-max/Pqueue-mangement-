@@ -7,14 +7,22 @@ const server = serve({
     const url = new URL(req.url);
     let path = url.pathname;
 
-    // Default to index.html if path is /
+    // 1. Default to index.html for root
     if (path === "/") path = "/index.html";
 
-    // Build the full file path
-    const filePath = join(process.cwd(), path);
-    const file = Bun.file(filePath);
+    // 2. Try to serve the exact path
+    let filePath = join(process.cwd(), path);
+    let file = Bun.file(filePath);
 
-    // Check if file exists
+    // 3. If doesn't exist, try adding .html (e.g., /contact -> /contact.html)
+    if (!(await file.exists())) {
+      const htmlPath = filePath + ".html";
+      const htmlFile = Bun.file(htmlPath);
+      if (await htmlFile.exists()) {
+        file = htmlFile;
+      }
+    }
+
     if (await file.exists()) {
       return new Response(file);
     }

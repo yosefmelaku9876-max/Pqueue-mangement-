@@ -39,16 +39,20 @@ function saveAndRender() {
 
 function renderQueue() {
     const listBody = document.getElementById('queueListBody');
+    const servingEl = document.getElementById('servingNo');
+    const nextEl = document.getElementById('nextNo');
+
+    const waiting = patients.filter(p => p.status === 'Waiting');
+    const current = patients.find(p => p.status === 'Serving');
+
+    // Update displays only if they exist on the current page
+    if (servingEl) servingEl.innerText = current ? current.token : "---";
+    if (nextEl) nextEl.innerText = waiting[0] ? waiting[0].token : "None";
+
     if(!listBody) return;
 
     listBody.innerHTML = '';
-    const waiting = patients.filter(p => p.status === 'Waiting');
-
-    // Update Top Display
-    const current = patients.find(p => p.status === 'Serving');
-    document.getElementById('servingNo').innerText = current ? current.token : "---";
-    document.getElementById('nextNo').innerText = waiting[0] ? waiting[0].token : "None";
-
+    
     // Build Table
     patients.forEach(p => {
         const row = document.createElement('tr');
@@ -57,12 +61,13 @@ function renderQueue() {
             <td>${p.token}</td>
             <td>${p.name}</td>
             <td><span class="badge ${p.category === 'Emergency' ? 'badge-emerg' : 'badge-normal'}">${p.category}</span></td>
-            <td>${p.status}</td>`;
+            <td><b>${p.status}</b></td>`;
         listBody.appendChild(row);
     });
 }
 
-window.callNextPatient = function() {
+// Unified function for both "Update Queue" and "Call Next" buttons
+window.callNextPatient = window.updateQueue = function() {
     // Mark serving as completed
     const servingIdx = patients.findIndex(p => p.status === 'Serving');
     if(servingIdx !== -1) patients.splice(servingIdx, 1);

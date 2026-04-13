@@ -1,8 +1,8 @@
 {
-  "name": "pqueue-mangement)",
+  "name": "pqueue-management",
   "private": true,
   "scripts": {
-    "dev": "bun run server.ts"
+    "dev": "bun run --watch server.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
